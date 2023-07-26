@@ -10,7 +10,7 @@ export function Header() {
           <ul className="menu menu-horizontal px-1">
             <li className="text-white"><Link href="/favoritos">Favoritos</Link></li>
             <li className="text-white"><Link href="/addgame">Agregar juegos</Link></li>
-            <li className="text-white"><Link href="/perfil">Perfil</Link></li>
+            <li className="text-white"><Link href="/login">Perfil</Link></li>
           </ul>
         </div>
       </div>
