@@ -12,8 +12,8 @@ export default function Paginado({
     pageNumbers.push(i);
   }
   return (
-    <div className="flex justify-center">
-      <div className="join">
+    <div className="flex justify-center bg-teal-700">
+      <div className="join bg-teal-700">
         {pageNumbers &&
           pageNumbers.map((p) =>
             p === currentPage ? (

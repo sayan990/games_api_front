@@ -3,6 +3,7 @@ import { useGetGamesQuery } from '@/redux/services/gamesApi'
 import Card from '../components/Card'
 import Paginate from "../components/Paginado";
 import { useState } from 'react';
+import { Loading } from '@/components/Loading';
 
 export default function Home() {
   const {data, error, isLoading, isFetching} = useGetGamesQuery()
@@ -23,15 +24,19 @@ export default function Home() {
     return <p>error</p>
   }
   if(isFetching || isLoading){
-    return <p>Cargando</p>
+    return <>
+    <Header/>
+    <Loading/>
+    </>
   }
   return (
     <div>
       <Header/>
     <div className='w-scren h-screen bg-teal-700'>
-    <div className='grid grid-cols-5 gap-4 p-4'>
+    <div className='grid grid-cols-5 gap-4 p-4 bg-teal-700'>
     {currentCards && currentCards.map((g) => (<Card
               key={g.id}
+              id ={g.id}
               name={g.name}              
               image={g.image}
               rating={g.rating}

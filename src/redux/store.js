@@ -1,4 +1,4 @@
-import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 import { createWrapper } from 'next-redux-wrapper';
 import { gamesApi } from './services/gamesApi';
 import { setupListeners } from '@reduxjs/toolkit/dist/query';

@@ -4,7 +4,7 @@ export function Header() {
     return(
         <div className="navbar bg-slate-900">
         <div className="flex-1">
-          <a className="btn btn-ghost normal-case text-xl text-white">AtariGamePass</a>
+          <p className="btn btn-ghost normal-case text-xl text-white"><Link href="/home">AtariGamePass</Link></p>
         </div>
         <div className="flex-none">
           <ul className="menu menu-horizontal px-1">

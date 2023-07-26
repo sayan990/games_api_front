@@ -8,8 +8,11 @@ export const gamesApi = createApi({
     endpoints: (builder) =>({
         getGames: builder.query({
             query: () => "videogames"
+        }),
+        getGamesById: builder.query({
+            query: ({id}) => `videogames/${id}`
         })
     })
 })
 
-export const {useGetGamesQuery} = gamesApi
+export const {useGetGamesQuery, useGetGamesByIdQuery} = gamesApi
