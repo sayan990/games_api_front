@@ -2,15 +2,16 @@ import { useDispatch } from "react-redux";
 import { useState } from "react";
 import Link from "next/link";
 import { Header } from "@/components/Header";
-import { registerUser } from "@/redux/features/UserSlice";
-//import {redirect} from "next/navigation"
+import { registerUser } from "@/redux/features/RegisterSlice";
 import { useRouter } from "next/navigation";
+import { useAppSelector } from "@/redux/hooks";
 
 
 export default function SignIn() {
   const dispatch = useDispatch();
   const router = useRouter()
-
+  const userData = useAppSelector(state => state.userSliceReducer)
+  //console.log(userData.status)
   const [input, setInput] = useState({
     name: "",
     mail: "",
@@ -28,8 +29,11 @@ export default function SignIn() {
     e.preventDefault();
     try {
       dispatch(registerUser(input)); // Llama a la acción para enviar los datos al backend
+      if (userData.status === "rejected") {
+        console.log("entre al if pero me chupo un huevo")
+        return alert("parece que hubo un error al crear el usuario")
+      }
       alert("usuario creado con exito")
-      //redirect("/home")
       router.push("/home")
     } catch (error) {
       // Maneja errores si es necesario
